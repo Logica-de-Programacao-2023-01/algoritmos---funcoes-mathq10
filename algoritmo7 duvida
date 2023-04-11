@@ -1,0 +1,27 @@
+package main
+
+import "fmt"
+
+func sliceInteiros(slice []int, outro func(int) int) ([]int, error) {
+	if len(slice) == 0 {
+		return nil, fmt.Errorf("deu erro")
+	}
+
+	var resultado []int
+	for _, rs := range slice {
+		resultado = append(slice, outro(rs))
+
+	}
+	return resultado, nil
+}
+
+func main() {
+	slice := []int{1, 2, 3, 4, 5, 6}
+	outro := func(num int) int { return num + 2 }
+	resultado, erro := sliceInteiros(slice, outro)
+	if erro != nil {
+		fmt.Print(erro)
+	} else {
+		fmt.Print(resultado)
+	}
+}
