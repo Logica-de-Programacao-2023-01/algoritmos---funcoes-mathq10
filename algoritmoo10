@@ -1,0 +1,26 @@
+package main
+
+import (
+	"fmt"
+	"sort"
+)
+
+func ordemCrescente(slice []int) ([]int, error) {
+	if len(slice) == 0 {
+		return nil, fmt.Errorf("deu erro")
+	}
+	resultado := make([]int, len(slice))
+	copy(resultado, slice)
+	sort.Ints(resultado)
+	return resultado, nil
+
+}
+func main() {
+	numeros := []int{2, 4, 1, 5, 6, 2, 8, 5, 9, 12}
+	result, err := ordemCrescente(numeros)
+	if err != nil {
+		fmt.Print(err)
+	} else {
+		fmt.Print(result)
+	}
+}
