@@ -1,0 +1,28 @@
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+func stringsLetraMaiuscula(slice []string) (string, error) {
+	if len(slice) == 0 {
+		return "", fmt.Errorf("deu erro")
+	}
+	var maiuscula string
+	for _, rs := range slice {
+		if len(rs) > 0 && rs[0] >= 'A' && rs[0] <= 'Z' {
+			maiuscula += rs + " "
+		}
+	}
+	return strings.TrimSpace(maiuscula), nil
+}
+func main() {
+	slice := []string{"Cachorro", "gato", "Leão", "Cegonha", "aguia"}
+	resultado, erro := stringsLetraMaiuscula(slice)
+	if erro != nil {
+		fmt.Print(erro)
+	} else {
+		fmt.Print(resultado)
+	}
+}
