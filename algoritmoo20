@@ -1,0 +1,25 @@
+package main
+
+import "fmt"
+
+func cincoCaracteres(slice []string) ([]string, error) {
+	if len(slice) == 0 {
+		return nil, fmt.Errorf("deu erro")
+	}
+	newslice := []string{}
+	for _, rs := range slice {
+		if len(rs) > 5 {
+			newslice = append(newslice, rs)
+		}
+	}
+	return newslice, nil
+}
+func main() {
+	slice := []string{"abacate", "maça", "banana", "ovo de codorna", "pecego"}
+	resultado, erro := cincoCaracteres(slice)
+	if erro != nil {
+		fmt.Print(erro)
+	} else {
+		fmt.Print(resultado)
+	}
+}
