@@ -1,0 +1,34 @@
+package main
+
+import "fmt"
+
+func numeroPrimo(num int) ([]int, error) {
+	if num < 0 {
+		return nil, fmt.Errorf("deu erro")
+	}
+	primos := []int{2}
+	for i := 3; i <= num; i++ {
+		ehPrimo := true
+		for j := 2; j*j <= i; j++ {
+			if i%j == 0 {
+				ehPrimo = false
+				break
+			}
+		}
+		if ehPrimo {
+			primos = append(primos, i)
+		}
+	}
+	return primos, nil
+}
+func main() {
+	var num int
+	fmt.Println("digite um numero:")
+	fmt.Scan(&num)
+	resultado, erro := numeroPrimo(num)
+	if erro != nil {
+		fmt.Print(erro)
+	} else {
+		fmt.Print(resultado)
+	}
+}
