@@ -1,0 +1,32 @@
+package main
+
+import (
+	"fmt"
+)
+
+func newSlice(slice []int, slice2 []int) ([]int, error) {
+	if len(slice) == 0 || len(slice2) == 0 {
+		return nil, fmt.Errorf("deu erro")
+	}
+	novoslice := []int{}
+	for _, rs := range slice {
+		for _, rs2 := range slice2 {
+			if rs == rs2 {
+				novoslice = append(novoslice, rs)
+				break
+			}
+		}
+	}
+
+	return novoslice, nil
+}
+func main() {
+	slice := []int{1, 2, 3, 4}
+	slice2 := []int{4, 6, 7, 8}
+	resultado, erro := newSlice(slice, slice2)
+	if erro != nil {
+		fmt.Print(erro)
+	} else {
+		fmt.Print(resultado)
+	}
+}

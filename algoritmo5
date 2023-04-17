@@ -1,0 +1,25 @@
+package main
+
+import "fmt"
+
+func main() {
+	nums := []int{1, 5, 8, 2, 3}
+	valor := 8
+	posicao := posicaoDoValor(nums, valor)
+	fmt.Printf("O valor %d está na posição %d\n", valor, posicao)
+
+	valor2 := 10
+	posicao2 := posicaoDoValor(nums, valor2)
+	if posicao2 == -1 {
+		fmt.Printf("O valor %d não está no slice\n", valor2)
+	}
+}
+
+func posicaoDoValor(nums []int, valor int) int {
+	for i, num := range nums {
+		if num == valor {
+			return i
+		}
+	}
+	return -1
+}

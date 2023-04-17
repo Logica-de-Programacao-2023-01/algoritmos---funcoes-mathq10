@@ -1,0 +1,28 @@
+package main
+
+import "fmt"
+
+func mediaartimi(slice []int) float64 {
+	var soma int
+	for _, valor := range slice {
+		soma += valor
+	}
+	return float64(soma) / float64(len(slice))
+}
+func main() {
+	var x int
+	fmt.Println("diga quantos numeros voce quer colocar:")
+	fmt.Scan(&x)
+
+	numeros := make([]int, x)
+
+	fmt.Println("Agora digite os números:")
+
+	for i := 0; i < x; i++ {
+		fmt.Scan(&numeros[i])
+
+	}
+	fmt.Println(numeros)
+	resultado := mediaartimi(numeros)
+	fmt.Print(resultado)
+}

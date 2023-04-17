@@ -1,0 +1,30 @@
+package main
+
+import "fmt"
+
+func ehPrimo(primo int) (bool, error) {
+	if primo < 0 {
+		return false, fmt.Errorf("deu erro")
+	}
+	primoexiste := true
+	for i := 2; i*i <= primo; i++ {
+		if primo%i == 0 {
+			primoexiste = false
+			return primoexiste, nil
+		}
+	}
+	return primoexiste, nil
+}
+func main() {
+	var num int
+	fmt.Println("digite um número:")
+	fmt.Scan(&num)
+	resultado, erro := ehPrimo(num)
+	if erro != nil {
+		fmt.Print(erro)
+	} else if resultado != true {
+		fmt.Println("Não é primo")
+	} else {
+		fmt.Println("é primo")
+	}
+}

@@ -1,0 +1,24 @@
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+func concatenacaoStrings(slice []string) (string, error) {
+	if len(slice) == 0 {
+		return "", fmt.Errorf("slice vazio")
+	}
+
+	return strings.Join(slice, ","), nil
+}
+
+func main() {
+	slice := []string{"fluminense", "campeao", "mundo"}
+	result, err := concatenacaoStrings(slice)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(result)
+	}
+}

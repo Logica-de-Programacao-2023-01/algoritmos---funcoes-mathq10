@@ -1,0 +1,29 @@
+package main
+
+import (
+	"fmt"
+	"strconv"
+)
+
+func somaDigitos(num int) (int, error) {
+	if num < 0 {
+		return 0, fmt.Errorf("deu erro")
+	}
+	var soma int
+	for _, rs := range strconv.Itoa(num) {
+		digito, _ := strconv.Atoi(string(rs))
+		soma += digito
+	}
+	return soma, nil
+}
+func main() {
+	var num int
+	fmt.Println("digite um número:")
+	fmt.Scan(&num)
+	resultado, erro := somaDigitos(num)
+	if erro != nil {
+		fmt.Print(erro)
+	} else {
+		fmt.Print(resultado)
+	}
+}

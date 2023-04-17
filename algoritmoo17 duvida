@@ -1,0 +1,26 @@
+package main
+
+import (
+	"fmt"
+	"sort"
+	"strings"
+)
+
+func ordemAlfabetica(slice []string) (string, error) {
+	if len(slice) == 0 {
+		return "", fmt.Errorf("deu erro")
+	}
+	sort.Strings(slice)
+	alfabetica := strings.Join(slice, "")
+	return alfabetica, nil
+}
+func main() {
+	palavra := "paralelepipedo"
+	palavraordem := strings.Split(palavra, "")
+	resultado, erro := ordemAlfabetica(palavraordem)
+	if erro != nil {
+		fmt.Print(erro)
+	} else {
+		fmt.Print(resultado)
+	}
+}

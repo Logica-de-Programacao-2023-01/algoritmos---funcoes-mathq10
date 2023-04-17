@@ -1,0 +1,28 @@
+package main
+
+import "fmt"
+
+func numerosPares(slice []int) ([]int, error) {
+	if len(slice) == 0 {
+		return nil, fmt.Errorf("deu erro")
+	}
+	var resultado []int
+
+	for _, rs := range slice {
+		if rs%2 == 0 {
+			resultado = append(resultado, rs)
+		}
+	}
+	return resultado, nil
+
+}
+func main() {
+	slice := []int{1, 2, 3, 4, 5, 6}
+	pares, erro := numerosPares(slice)
+	if erro != nil {
+		fmt.Print(erro)
+	} else {
+		fmt.Print(pares)
+	}
+
+}
